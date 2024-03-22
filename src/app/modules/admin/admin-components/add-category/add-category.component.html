@@ -1,0 +1,38 @@
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="alert alert-success" *ngIf="message">
+          {{message}}
+        </div>
+        <div class="card shadow-lg rounded-lg border-0">
+          <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Add Category</h3>
+          </div>
+          <!-- <img src="../../../../../assets/CategoryForm.jpg" class="card-img-top" alt="Card image"> -->
+          <img *ngIf="selectedFile" [src]="imagePreview" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <form [formGroup]="categoryForm">
+              <div class="form-group" >
+                <label for="image" >Image : </label>
+                <input type="file" (change)="onFileSelected($event)" class="form-control-file" id="image">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter description" formControlName="description"></textarea>
+              </div>
+              <br>
+              <button type="submit" (click)="postCategory()" class="btn btn-primary btn-block">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

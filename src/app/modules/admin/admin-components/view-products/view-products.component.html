@@ -1,0 +1,21 @@
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4 mb-4" *ngFor="let product of products">
+        <div class="card h-100">
+          <img [src]="product.processedImg" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="card-text"> {{product.price}}</h6>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text">Category - {{product.categoryName}}</p>
+
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-warning mr-5" routerLink="/admin/{{product.id}}/products">Update</button>
+            <button class="btn btn-danger" routerLink="/admin/{{product.id}}/product">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

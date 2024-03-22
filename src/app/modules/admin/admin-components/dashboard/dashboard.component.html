@@ -1,0 +1,25 @@
+<div class="mt-5 fixed-top">
+<form class="form-inline my-2 my-lg-0" [formGroup]="validateForm">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName="title">
+    <button class="btn btn-success my-2 my-sm-0" (click)="submitForm()" type="submit">Search</button>
+  </form>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4 mb-4" *ngFor="let category of categories">
+        <div class="card h-100">
+          <img [src]="category.processedImg" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <h5 class="card-title">{{category.name}}</h5>
+            <p class="card-text">{{category.description}}</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-info mr-2" routerLink="/admin/{{category.id}}/products">View Product</button>
+            <button class="btn btn-primary" routerLink="/admin/{{category.id}}/product">Post Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
