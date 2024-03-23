@@ -37,7 +37,7 @@ export class LoginComponent {
         if(StorageService.isAdminLoggedIn()){
           this.router.navigateByUrl("admin/dashboard");
         } else if(StorageService.isCustomerLoggedIn()){
-          this.router.navigateByUrl("customer/dashboard")
+          this.router.navigateByUrl("customer/home")
         }
       }else{
         console.log("Wrong Credentials!")
