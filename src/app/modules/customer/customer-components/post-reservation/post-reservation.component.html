@@ -1,0 +1,36 @@
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Table Reservation</h5>
+            <form [formGroup]="validateForm">
+              <div class="form-group">
+                <label for="tableChoice">Table Choice</label>
+                <select class="form-control" id="tableChoice" name="tableChoice" formControlName="tableType">
+                  <option selected disabled>Select Table</option>
+                  <option>Standard Table</option>
+                  <option>Booth</option>
+                  <option>Outdoor Table</option>
+                  <option>Corner Table</option>
+                  <option>Banquette</option>
+                  <option>Family Table</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dateTime">Date and Time</label>
+                <input type="datetime-local" class="form-control" id="dateTime" name="dateTime" formControlName="dateTime">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" formControlName="description"></textarea>
+              </div>
+              <button type="submit" (click)="postReservation()" class="btn btn-primary">Reserve Table</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
