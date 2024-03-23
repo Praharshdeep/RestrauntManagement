@@ -3,3 +3,4 @@
     width: 100%; /* Ensure the images occupy the full width of the card */
     object-fit: cover; /* Scale the images while preserving aspect ratio */
   }
+ 

@@ -37,7 +37,8 @@ export class AddCategoryComponent {
       console.log(formdata)
       this.service.postCategory(formdata).subscribe(
         res=>{console.log(res);
-          if(res.id!=null){this.message = "Category Posted Succesfully"}
+          if(res.id!=null){this.message = "Category Posted Succesfully";
+          this.router.navigateByUrl('/admin/dashboard');}
           else this.message = "Category not posted"
         }
       )

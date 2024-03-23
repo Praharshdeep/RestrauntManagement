@@ -36,6 +36,9 @@ export class DashboardComponent {
 
   submitForm(){
     this.categories =[];
+    if(!this.validateForm.get(['title']).value){
+      this.getAllCategories();
+    }
     this.service.getAllCategoriesByTitle(this.validateForm.get(['title']).value).subscribe((res)=>{
       console.log(res);
       res.forEach(element => {

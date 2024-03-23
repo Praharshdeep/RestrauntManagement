@@ -7,6 +7,8 @@ import { AddCategoryComponent } from './admin-components/add-category/add-catego
 import { HttpClientModule } from '@angular/common/http';
 import { PostProductComponent } from './admin-components/post-product/post-product.component';
 import { ViewProductsComponent } from './admin-components/view-products/view-products.component';
+import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
+import { AllProductsComponent } from './admin-components/all-products/all-products.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { ViewProductsComponent } from './admin-components/view-products/view-pro
     DashboardComponent,
     AddCategoryComponent,
     PostProductComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    UpdateProductComponent,
+    AllProductsComponent
   ],
   imports: [
     CommonModule,
