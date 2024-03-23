@@ -1,0 +1,5 @@
+.equal-img {
+    height: 200px; /* Set a fixed height for the images */
+    width: 100%; /* Ensure the images occupy the full width of the card */
+    object-fit: cover; /* Scale the images while preserving aspect ratio */
+  }

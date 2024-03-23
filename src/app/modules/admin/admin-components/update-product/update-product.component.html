@@ -1,6 +1,3 @@
-
-<h2>Add Category</h2>
-
 <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-lg-5">
@@ -9,12 +6,13 @@
         </div>
         <div class="card shadow-lg rounded-lg border-0">
           <div class="card-header bg-primary text-white text-center">
-            <h3 class="mb-0">Add Category</h3>
+            <h3 class="mb-0">Update Product</h3>
           </div>
-          <!-- <img src="../../../../../assets/CategoryForm.jpg" class="card-img-top" alt="Card image"> -->
-          <img *ngIf="selectedFile" [src]="imagePreview" class="card-img-top" alt="Card image">
+          <img *ngIf="imagePreview" [src]="imagePreview" class="card-img-top" alt="Card image">
           <div class="card-body">
-            <form [formGroup]="categoryForm">
+          <img *ngIf="existingImage" [src]="existingImage" class="card-img-top" alt="Card image">
+          <div class="card-body">
+            <form [formGroup]="productForm">
               <div class="form-group" >
                 <label for="image" >Image : </label>
                 <input type="file" (change)="onFileSelected($event)" class="form-control-file" id="image">
@@ -29,8 +27,12 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" rows="3" placeholder="Enter description" formControlName="description"></textarea>
               </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="Enter price" formControlName="price">
+              </div>
               <br>
-              <button type="submit" (click)="postCategory()" class="btn btn-primary btn-block">Submit</button>
+              <button type="submit" (click)="updateProduct()" class="btn btn-success btn-block">Update</button>
             </form>
           </div>
         </div>

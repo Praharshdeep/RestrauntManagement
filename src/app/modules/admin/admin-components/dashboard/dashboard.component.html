@@ -1,15 +1,25 @@
-<div class="mt-5 fixed-top">
-<form class="form-inline my-2 my-lg-0" [formGroup]="validateForm">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName="title">
-    <button class="btn btn-success my-2 my-sm-0" (click)="submitForm()" type="submit">Search</button>
-  </form>
+<h2>All Categories</h2>
+ <br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group" [formGroup]="validateForm">
+        <input type="text" class="form-control" placeholder="Search..." formControlName="title">
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="submitForm()" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <div class="container mt-5">
     <div class="row">
       <div class="col-lg-4 mb-4" *ngFor="let category of categories">
         <div class="card h-100">
-          <img [src]="category.processedImg" class="card-img-top" alt="Card image">
+          <img [src]="category.processedImg" class="card-img-top equal-img" alt="Card image">
           <div class="card-body">
             <h5 class="card-title">{{category.name}}</h5>
             <p class="card-text">{{category.description}}</p>

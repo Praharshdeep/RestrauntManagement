@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { AdminService } from '../../admin-services/admin.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AdminService } from '../../admin-services/admin.service';
 
 @Component({
-  selector: 'app-view-products',
-  templateUrl: './view-products.component.html',
-  styleUrl: './view-products.component.css'
+  selector: 'app-all-products',
+  templateUrl: './all-products.component.html',
+  styleUrl: './all-products.component.css'
 })
-export class ViewProductsComponent {
-
+export class AllProductsComponent {
   categoryId: any = this.activatedroute.snapshot.params['categoryId']
   products: any = [];
   validateForm : FormGroup;
@@ -18,8 +17,7 @@ export class ViewProductsComponent {
 
   constructor(private service:AdminService,
     private activatedroute : ActivatedRoute,
-    private fb:FormBuilder,
-    private router:Router){
+    private fb:FormBuilder){
   }
 
   ngOnInit(){
@@ -31,19 +29,14 @@ export class ViewProductsComponent {
 
   getAllProducts(){
     this.products =[];
-    this.service.getProductsByCategories(this.categoryId).subscribe((res)=> {
+    this.service.getAllProduct().subscribe((res)=> {
       res.forEach(element => {
         element.processedImg = 'data:image/jpeg;base64,' + element.returnedImg;
-        this.products.push(element);
-      });
-    });
+        this.products.push(element);})});
   }
 
   submitForm(){
     this.products =[];
-    if(!this.validateForm.get(['title']).value){
-      this.getAllProducts();
-    }
     this.service.getProductsByCategoryAndTitle(this.categoryId,this.validateForm.get(['title']).value).subscribe((res)=>{
       console.log(res);
       res.forEach(element => {

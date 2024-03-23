@@ -30,4 +30,24 @@ export class AdminService {
   getProductsByCategories(categoryId:number):Observable<any>{
     return this.http.get<[]>(BASIC_URL+`api/admin/${categoryId}/products`);
   }
+
+  getProductsByCategoryAndTitle(categoryId:number,title:string):Observable<any>{
+    return this.http.get<[]>(BASIC_URL+`api/admin/${categoryId}/product/${title}`);
+  }
+
+  deleteProduct(productId:number):Observable<any>{
+    return this.http.delete<[]>(BASIC_URL + `api/admin/product/${productId}`);
+  }
+
+  getProductById(productId:number):Observable<any>{
+    return this.http.get<[]>(BASIC_URL+ `api/admin/product/${productId}`);
+  }
+
+  updateProduct(productId:number,productDto:any):Observable<any>{
+    return this.http.put<[]>(BASIC_URL + `api/admin/product/${productId}`,productDto)
+  }
+
+  getAllProduct():Observable<any>{
+    return this.http.get<[]>(BASIC_URL + "api/admin/products");
+  }
 }
