@@ -50,4 +50,13 @@ export class AdminService {
   getAllProduct():Observable<any>{
     return this.http.get<[]>(BASIC_URL + "api/admin/products");
   }
+
+  getReservations() : Observable<any>{
+    return this.http.get<[]>(BASIC_URL + "api/admin/reservations")
+  }
+
+  changeReservations(reservationId:number,status:string) : Observable<any>{
+    return this.http.get<[]>(BASIC_URL + `api/admin/reservations/${reservationId}/${status}`)
+  }
+
 }

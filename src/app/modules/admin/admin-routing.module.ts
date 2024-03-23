@@ -6,6 +6,7 @@ import { PostProductComponent } from './admin-components/post-product/post-produ
 import { ViewProductsComponent } from './admin-components/view-products/view-products.component';
 import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
 import { AllProductsComponent } from './admin-components/all-products/all-products.component';
+import { GetReservationsComponent } from './admin-components/get-reservations/get-reservations.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:"products",component:AllProductsComponent},
   {path:":categoryId/product",component:PostProductComponent},
   {path:":categoryId/products",component:ViewProductsComponent},
-  {path:"product/:productId",component:UpdateProductComponent} //Jab Id variable me pass krni ho
+  {path:"product/:productId",component:UpdateProductComponent},
+  {path:"reservations",component:GetReservationsComponent} //Jab Id variable me pass krni ho
 ];
 
 @NgModule({

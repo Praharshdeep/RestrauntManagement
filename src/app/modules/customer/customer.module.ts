@@ -6,12 +6,14 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { DashboardComponent } from './customer-components/dashboard/dashboard.component';
 import { PostReservationComponent } from './customer-components/post-reservation/post-reservation.component';
 import { GetAllReservationsComponent } from './customer-components/get-all-reservations/get-all-reservations.component';
+import { HomePageComponent } from './customer-components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     PostReservationComponent,
-    GetAllReservationsComponent
+    GetAllReservationsComponent,
+    HomePageComponent
   ],
   imports: [
     CommonModule,

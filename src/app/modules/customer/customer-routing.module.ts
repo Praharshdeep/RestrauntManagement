@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './customer-components/dashboard/dashboard.component';
 import { PostReservationComponent } from './customer-components/post-reservation/post-reservation.component';
 import { GetAllReservationsComponent } from './customer-components/get-all-reservations/get-all-reservations.component';
+import { HomePageComponent } from './customer-components/home-page/home-page.component';
 
 const routes: Routes = [
+  {path:"home",component:HomePageComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"reservation",component:PostReservationComponent},
   {path:"reservations",component:GetAllReservationsComponent}

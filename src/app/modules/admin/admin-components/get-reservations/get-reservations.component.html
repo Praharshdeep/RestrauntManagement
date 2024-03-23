@@ -1,0 +1,46 @@
+<h2>All Reservations</h2>
+<br>
+<div class="container">
+  <div class="card mb-3" *ngFor="let reservation of reservations">
+    <div class="card-header">
+        {{reservation.customerName}}
+    </div>
+    <div style="color:green" class="card-body" *ngIf="reservation.reservationStatus == 'APPROVED'">
+    
+        <h5 class="card-title">{{reservation.tableType}}</h5>
+        <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+        <p class="card-text">{{reservation.description}}</p>
+        <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+        
+        <span *ngIf="reservation.reservationStatus == 'PENDING'">
+          <button style="margin-left: 10px;" class="btn btn-primary btn-sm" (click)="changeReservation(reservation.id,'Approve')">Approve</button>
+          <button style="margin-left: 10px;" class="btn btn-danger btn-sm" (click)="changeReservation(reservation.id,'Disapprove')">Disapprove</button>
+      </span>
+
+    </div>
+    <div class="card-body" *ngIf="reservation.reservationStatus == 'PENDING'">
+
+        <h5 class="card-title">{{reservation.tableType}}</h5>
+      <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+      <p class="card-text">{{reservation.description}}</p>
+      <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+      
+      <span *ngIf="reservation.reservationStatus == 'PENDING'">
+        <button style="margin-left: 10px;" class="btn btn-primary btn-sm" (click)="changeReservation(reservation.id,'Approve')">Approve</button>
+        <button style="margin-left: 10px;" class="btn btn-danger btn-sm" (click)="changeReservation(reservation.id,'Disapprove')">Disapprove</button>
+    </span>
+    </div>
+    <div style="color:red" class="card-body" *ngIf="reservation.reservationStatus == 'DISAPPROVED'">
+      <h5 class="card-title">{{reservation.tableType}}</h5>
+      <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+      <p class="card-text">{{reservation.description}}</p>
+      <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+      
+      <span *ngIf="reservation.reservationStatus == 'PENDING'">
+        <button style="margin-left: 10px;" class="btn btn-primary btn-sm" (click)="changeReservation(reservation.id,'Approve')">Approve</button>
+        <button style="margin-left: 10px;" class="btn btn-danger btn-sm" (click)="changeReservation(reservation.id,'Disapprove')">Disapprove</button>
+    </span>
+    </div>
+    </div>
+  </div>
+

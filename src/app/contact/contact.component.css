@@ -1,0 +1,20 @@
+.contact-section { /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    color: black;
+    padding: 100px 0; /* Add padding for better visibility */
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay with fading effect */
+    padding: 50px 0; /* Adjust padding as needed */
+  }
+  .contact-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for form */
+    border-radius: 10px; /* Rounded corners for form */
+    padding: 30px;
+  }
+  .form-group label {
+    font-weight: bold;
+  }
