@@ -15,6 +15,12 @@ export class StorageService {
     window.localStorage.setItem(TOKEN,token)
   }
 
+  static getUserId():string{
+    const user = this.getUser();
+    if(user==null) return '';
+    return user.id;
+  }
+
   static saveUser(user:any):void{
     window.localStorage.removeItem(USER);
     window.localStorage.setItem(USER,JSON.stringify(user));
