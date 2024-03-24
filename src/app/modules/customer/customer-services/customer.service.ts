@@ -20,6 +20,10 @@ export class CustomerService {
       return this.http.get<[]>(BASIC_URL+`api/customer/categories/${title}`)
     }
 
+    getProductsByCategory(categoryId: number):Observable<any>{
+      return this.http.get<[]>(BASIC_URL+`api/customer/${categoryId}/products`)
+    }
+
     postReservation(reservationDto:any):Observable<any>{
       reservationDto.customerId = StorageService.getUserId();
       return this.http.post<[]>(BASIC_URL+"api/customer/reservation",reservationDto);
