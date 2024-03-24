@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerService } from '../../customer-services/customer.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view-products-by-category',
@@ -21,6 +21,9 @@ export class ViewProductsByCategoryComponent {
     
       ngOnInit(){
         this.getProductsByCategory();
+        this.validateForm = this.fb.group({
+          title : [null,Validators.required]
+        });
       }
 
       getProductsByCategory(){
@@ -34,7 +37,18 @@ export class ViewProductsByCategoryComponent {
       }
 
       submitForm() {
-        
+        this.products =[];
+        if(!this.validateForm.get(['title']).value){
+          this.getProductsByCategory();
+        }
+        this.service.getProductsByCategoryAndTitle(this.categoryId,this.validateForm.get(['title']).value).subscribe((res)=>{
+          
+          res.forEach(element => {
+            element.processedImg = 'data:image/jpeg;base64,' + element.returnedImg;
+            this.products.push(element);
+          })
+        }
+        )
       }
 
 }

@@ -16,12 +16,16 @@ export class CustomerService {
       return this.http.get<[]>(BASIC_URL+"api/customer/categories")
     }
 
+    getProductsByCategory(categoryId: number):Observable<any>{
+      return this.http.get<[]>(BASIC_URL+`api/customer/${categoryId}/products`)
+    }
+
     getCategoriesByName(title:String):Observable<any>{
       return this.http.get<[]>(BASIC_URL+`api/customer/categories/${title}`)
     }
 
-    getProductsByCategory(categoryId: number):Observable<any>{
-      return this.http.get<[]>(BASIC_URL+`api/customer/${categoryId}/products`)
+    getProductsByCategoryAndTitle(categoryId:number,title:string):Observable<any>{
+      return this.http.get<[]>(BASIC_URL+`api/customer/${categoryId}/product/${title}`);
     }
 
     postReservation(reservationDto:any):Observable<any>{
