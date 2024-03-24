@@ -7,6 +7,7 @@ import { DashboardComponent } from './customer-components/dashboard/dashboard.co
 import { PostReservationComponent } from './customer-components/post-reservation/post-reservation.component';
 import { GetAllReservationsComponent } from './customer-components/get-all-reservations/get-all-reservations.component';
 import { HomePageComponent } from './customer-components/home-page/home-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomePageComponent } from './customer-components/home-page/home-page.com
     CommonModule,
     CustomerRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class CustomerModule { }

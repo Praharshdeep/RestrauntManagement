@@ -1,3 +1,17 @@
+<div class="mt-5">.</div>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group" [formGroup]="validateForm">
+          <input type="text" class="form-control" placeholder="Search..." formControlName="title">
+          <div class="input-group-append">
+            <button class="btn btn-success" (click)="submitForm()" type="button"  >Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="container mt-5">
     <div class="row">
       <div class="col-lg-4 mb-4" *ngFor="let category of categories">
