@@ -18,7 +18,7 @@ export class AdminService {
   getAllCategories():Observable<any>{
     return this.http.get<[]>(BASIC_URL+"api/admin/categories")
   }
-
+ 
   getAllCategoriesByTitle(title:string):Observable<any>{
     return this.http.get<[]>(BASIC_URL+`api/admin/categories/${title}`)
   }
