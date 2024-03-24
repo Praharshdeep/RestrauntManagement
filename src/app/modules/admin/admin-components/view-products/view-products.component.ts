@@ -45,7 +45,7 @@ export class ViewProductsComponent {
       this.getAllProducts();
     }
     this.service.getProductsByCategoryAndTitle(this.categoryId,this.validateForm.get(['title']).value).subscribe((res)=>{
-      console.log(res);
+      //console.log(res);
       res.forEach(element => {
         element.processedImg = 'data:image/jpeg;base64,' + element.returnedImg;
         this.products.push(element);

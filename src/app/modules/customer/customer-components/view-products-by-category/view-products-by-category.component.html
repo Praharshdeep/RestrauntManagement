@@ -1,0 +1,32 @@
+<p class="m-5">12</p>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group" [formGroup]="validateForm">
+          <input type="text" class="form-control" placeholder="Search..." formControlName="title">
+          <div class="input-group-append">
+            <button class="btn btn-success" (click)="submitForm()" type="button">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-4 mb-4" *ngFor="let product of products">
+          <div class="card h-100">
+            <img [src]="product.processedImg" class="card-img-top equal-img" alt="Card image">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <h6 class="card-text">Price : {{product.price}} &#x20B9;</h6>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text">Category - {{product.categoryName}}</p>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
