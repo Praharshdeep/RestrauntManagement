@@ -1,10 +1,10 @@
 
 <h2>All Products</h2> 
-  
+  <div class="overlay"></div>
   <div class="container mt-5">
       <div class="row">
         <div class="col-lg-3 mb-4 " *ngFor="let product of products">
-          <div class="card h-100" style="width: 18rem;">
+          <div style="margin-right:10px" class="card h-100">
             <img [src]="product.processedImg" class="card-img-top equal-img" alt="Card image">
             <div class="card-body">
               <h5 class="card-title">{{product.name}}</h5>
