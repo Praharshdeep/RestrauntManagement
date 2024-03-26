@@ -19,8 +19,9 @@ export class GetAllReservationsComponent {
 
   getReservationsByUser(){
     this.customerService.getReservationByUser().subscribe((res)=>{
-      console.log(res);
-      this.reservations = res;
+      this.reservations = res.sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     })
-  }
+  })
+ }
 }

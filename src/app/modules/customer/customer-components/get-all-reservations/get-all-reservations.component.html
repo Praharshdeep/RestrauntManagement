@@ -1,27 +1,34 @@
+<h2>All Reservations</h2>
+<br>
+<div class="overlay"></div>
+<div class="container">
+  <div class="card mb-3" *ngFor="let reservation of reservations">
+    <div class="card-header">
+        {{reservation.customerName}}
+    </div>
+    <div style="color:green" class="card-body" *ngIf="reservation.reservationStatus == 'APPROVED'">
+    
+        <h5 class="card-title">{{reservation.tableType}}</h5>
+        <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+        <p class="card-text">{{reservation.description}}</p>
+        <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+        
 
-<div class="container mt-5">
-  <!-- <div class="overlay"></div> -->
-    <h2 class="text-center mb-4">Reservations</h2>
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-          <tr>
-            <th>Table Type</th>
-            <th>Description</th>
-            <th>Reservation Time</th>
-            <th>Reservation Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let reservation of reservations">
-            <td><strong>{{reservation.tableType}}</strong></td>
-            <td><strong>{{reservation.description}}</strong></td>
-            <td><strong>{{reservation.dateTime | date:'h:mm a'}}</strong></td>
-            <td><strong>{{reservation.dateTime | date}}</strong></td>
-            <td><strong>{{reservation.reservationStatus}}</strong></td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+    <div class="card-body" *ngIf="reservation.reservationStatus == 'PENDING'">
+
+        <h5 class="card-title">{{reservation.tableType}}</h5>
+      <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+      <p class="card-text">{{reservation.description}}</p>
+      <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+      
+    </div>
+    <div style="color:red" class="card-body" *ngIf="reservation.reservationStatus == 'DISAPPROVED'">
+      <h5 class="card-title">{{reservation.tableType}}</h5>
+      <h6 class="card-text">{{reservation.dateTime | date}} - {{reservation.dateTime | date:'h:mm a'}}</h6>
+      <p class="card-text">{{reservation.description}}</p>
+      <h6 class="card-text">{{reservation.reservationStatus}}</h6>
+      
+    </div>
     </div>
   </div>
